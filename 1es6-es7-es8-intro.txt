@@ -1,0 +1,22 @@
+What is ECMAScript?
+
+It's like a rulebook for JavaScript. 
+When people make web browsers, they need a set of rules so that 
+when you write a program in JavaScript, it works the same way no
+ matter which browser you're using.
+
+Why was it developed?
+To make sure everyone plays by the same rules.
+Imagine you're playing a game, and everyone needs 
+to follow the same rules to make it fair and fun. Similarly,
+ECMAScript was created so that all the web browsers follow the same 
+rules when it comes to understanding and running JavaScript code.
+
+In even simpler terms:
+ECMAScript helps all the web browsers
+ speak the same language when they're 
+ running JavaScript code. It's like having 
+ a common set of rules for everyone, so developers can 
+ write code confidently, knowing it will work properly across 
+ different browsers.imagine JavaScript is a language, and ECMAScript 
+ is the grammar book that helps everyone understand and use the language in the same way.
