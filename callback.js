@@ -1,36 +1,42 @@
-const peoples=[
 
-    {name:"jackson"},
-    {name:"ram bahadur"}
-]
-
-function getData(){
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            const result=peoples.map((name,index)=>{return name.name})
-            resolve(result)
-            console.log(`output:${result}`)
-        },2000)
-    })
+function getCheese(callback)
+{
+    setTimeout(()=>{
+        const cheese="cheese"
+        // return cheese
+       return callback(cheese)
+    },2000)
+   
 }
-
-function createData(data){
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            peoples.push(data)
-            resolve()
-        },1000)
-    })
+function makeDough(callback){
+    setTimeout(()=>{
+    const dough="dough"
+    return callback(dough)
+},2000)
 }
-// getData()
-createData( {name:"sita"}).then(getData).catch(err=>console.log(err))
-
-//callback function
-// function createName(name,callback){
-//     callback(name)
-// }
-// function displayName(name){
-//     console.log(`my name is ${name}`)
-// }
-// createName("jackson",displayName)
-
+function pizzaReady(cheese,dough,callback){
+    setTimeout(()=>{
+        const pizza="this is your pizza with " +" " +cheese+" "+dough
+        return callback(pizza)
+    },2000)
+    
+}
+function payment(callback){
+    setTimeout(()=>{
+        const money="rs 500"
+        return callback(money)
+    },2000)
+    
+}
+getCheese((cheese)=>{
+    console.log('i bought a',cheese)
+    makeDough((dough)=>{
+        console.log('i have now:',cheese +" and "+ dough)
+        pizzaReady(cheese,dough,(pizza)=>{
+            console.log('your pizza is ready',pizza)
+            payment((money)=>{
+                console.log("you have to pay:",money)
+            })
+        })
+    })
+})

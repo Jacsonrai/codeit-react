@@ -1,31 +1,57 @@
-const peoples=[
 
-    {name:"jackson"},
-    {name:"ram bahadur"}
-]
 
-function getData(){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            const result = peoples.map((person) => person.name);
-            console.log(`output: ${result}`);
-            resolve();
-        }, 2000);
-    });
+
+
+function getCheese()
+{
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const cheese="cheese"
+            // return callback(cheese)
+           resolve(cheese)
+        },2000)
+    })
+   
 }
-
-function createData(data){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            peoples.push(data);
-            resolve();
-        }, 1000);
-    });
+function makeDough(cheese){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+        const dough="dough" + " and " +cheese
+        resolve(dough)
+    })
+},2000)
 }
-
-async function processData() {
-    await createData({name: "sita"});
-    await getData();
+function pizzaReady(doughAndCheese){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const pizza="this is your pizza with "+doughAndCheese
+            resolve(pizza)
+        },2000)
+    })
+  
+    
 }
-
-processData();
+function payment(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const money="rs 500"
+            resolve(money)
+        },2000)
+    })
+    
+    
+}
+async function bakedPizza(){
+    const cheese=await getCheese()
+    console.log("your cheese is ready")
+    const dough=await makeDough(cheese)
+    console.log('your cheese and dough is ready')
+    const pizza =await pizzaReady(dough)
+    if(pizza){
+        console.log('pizza is consumed')
+        const money=await payment()
+        console.log('your bill is:',money)
+    }
+    // console.log(pizza)
+}
+bakedPizza()
